@@ -1,0 +1,32 @@
+.hero {
+
+	.wrapper {
+		@include display(flex);
+		@include align-items(center);
+		@include justify-content(center);
+		@include flex-direction(column);
+		height: 100vh;
+	}
+
+	h1 {
+		font-size: 64px;
+		margin-bottom: 20px;
+	}
+
+	h2 {
+		font-size: 56px;
+		margin-bottom: 20px;
+	}
+
+	img {
+		width: 80px;
+		height: 80px;
+		border-radius: 50%;
+		padding: 8px;
+
+		&:hover {
+			transition: border .3s;
+			border: 3px solid rgba(64, 64, 64, .2);
+		}
+	}
+}

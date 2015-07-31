@@ -1,0 +1,56 @@
+header {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	transition: all .3s;
+
+	&.navscroll {
+		background: rgba(255, 255, 255, .95);
+		padding-bottom: 0;
+		border-bottom: 1px solid $gray;
+		box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .25);
+	}
+
+	.wrapper {
+		@include display(flex);
+		@include align-items(center);
+		height: 64px;
+		padding: 0 20px 1px;
+	}
+
+
+	.logo {
+
+		b {
+			font-size: 24px;
+			color: #FC7E8F;
+		}
+
+		span {
+			margin-left: -30px;
+			opacity: 0;
+			transition: margin-left .5s,
+						opacity .2s;
+		}
+
+		&:hover span {
+			transition: opacity .3s .1s ease-in,
+						margin-left .5s;
+			margin-left: 0;
+			opacity: 1;
+		}
+	}
+
+	nav {
+		margin-left: auto;
+
+		ul {
+			@include display(flex);
+			list-style: none;
+
+			li {
+				padding: 0 12px;
+			}
+		}
+	}
+}
