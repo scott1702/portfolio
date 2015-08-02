@@ -1,4 +1,9 @@
 .hero {
+	background: url('../img/waves.png') #C5D1FD repeat-x;
+	background-position: bottom;
+	animation: backgroundScroll 30s linear infinite;
+	position: relative;
+	overflow-x: hidden;
 
 	.wrapper {
 		@include display(flex);
@@ -9,11 +14,13 @@
 	}
 
 	h1 {
+		font-weight: normal;
 		font-size: 64px;
 		margin-bottom: 20px;
 	}
 
 	h2 {
+		font-weight: normal;
 		font-size: 56px;
 		margin-bottom: 20px;
 	}
@@ -28,5 +35,27 @@
 			transition: border .3s;
 			border: 3px solid rgba(64, 64, 64, .2);
 		}
+	}
+
+	.boat {
+		position: absolute;
+		bottom: 48px;
+		width: 160px;
+		height: 80px;
+		transform-origin: left center;
+		background-image: url('../img/boat.png');
+		z-index: 2;
+		animation: boatMove 60s linear infinite,
+				   boatRotate 8s ease infinite;
+	}
+
+	.smoke {
+		background-image: url('../img/smoke.png');
+		width: 60px;
+		height: 60px;
+		position: absolute;
+		right: 84px;
+		z-index: 1;
+		animation: smoke 4s ease infinite;
 	}
 }

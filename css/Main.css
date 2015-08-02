@@ -1,10 +1,55 @@
+@keyframes backgroundScroll {
+  0% {
+    background-position: 0 bottom;
+  }
+  100% {
+    background-position: -680px bottom;
+  }
+}
+@keyframes boatMove {
+  0% {
+    left: -200px;
+  }
+  99.99% {
+    left: calc(100% + 200px);
+  }
+  100% {
+    left: -200px;
+  }
+}
+@keyframes boatRotate {
+  0% {
+    transform: rotate(3deg);
+  }
+  50% {
+    transform: rotate(-5deg);
+  }
+  100% {
+    transform: rotate(3deg);
+  }
+}
+@keyframes smoke {
+  0% {
+    opacity: 0;
+    top: -50px;
+  }
+  50% {
+    opacity: 1;
+    top: -70px;
+  }
+  100% {
+    opacity: 0;
+    top: -70px;
+  }
+}
 /* line 1, ../scss/_layout.scss */
 .wrapper {
   width: 70%;
   margin: auto;
+  max-width: 960px;
 }
 
-/* line 6, ../scss/_layout.scss */
+/* line 7, ../scss/_layout.scss */
 *,
 *::after,
 *::before {
@@ -13,14 +58,15 @@
   margin: 0;
 }
 
-/* line 14, ../scss/_layout.scss */
+/* line 15, ../scss/_layout.scss */
 body {
+  background: #86a9e4;
   font-size: 16px;
   color: #444;
   font-family: 'Raleway', sans-serif;
 }
 
-/* line 20, ../scss/_layout.scss */
+/* line 22, ../scss/_layout.scss */
 a,
 a:hover,
 a:visited,
@@ -35,16 +81,17 @@ header {
   position: fixed;
   top: 0;
   width: 100%;
+  z-index: 10;
   transition: all .3s;
 }
-/* line 7, ../scss/_nav.scss */
+/* line 8, ../scss/_nav.scss */
 header.navscroll {
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(255, 255, 255, 0.8);
   padding-bottom: 0;
   border-bottom: 1px solid #bbb;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);
 }
-/* line 14, ../scss/_nav.scss */
+/* line 15, ../scss/_nav.scss */
 header .wrapper {
   display: -webkit-box;
   display: -moz-box;
@@ -63,30 +110,30 @@ header .wrapper {
   align-items: center;
   -ms-flex-align: center;
   height: 64px;
-  padding: 0 20px 1px;
+  padding: 0 1px;
 }
-/* line 24, ../scss/_nav.scss */
+/* line 25, ../scss/_nav.scss */
 header .logo b {
   font-size: 24px;
   color: #FC7E8F;
 }
-/* line 29, ../scss/_nav.scss */
+/* line 30, ../scss/_nav.scss */
 header .logo span {
   margin-left: -30px;
   opacity: 0;
   transition: margin-left .5s, opacity .2s;
 }
-/* line 36, ../scss/_nav.scss */
+/* line 37, ../scss/_nav.scss */
 header .logo:hover span {
   transition: opacity .3s .1s ease-in, margin-left .5s;
   margin-left: 0;
   opacity: 1;
 }
-/* line 44, ../scss/_nav.scss */
+/* line 45, ../scss/_nav.scss */
 header nav {
   margin-left: auto;
 }
-/* line 47, ../scss/_nav.scss */
+/* line 48, ../scss/_nav.scss */
 header nav ul {
   display: -webkit-box;
   display: -moz-box;
@@ -97,12 +144,20 @@ header nav ul {
   display: flex;
   list-style: none;
 }
-/* line 51, ../scss/_nav.scss */
+/* line 52, ../scss/_nav.scss */
 header nav ul li {
   padding: 0 12px;
 }
 
-/* line 3, ../scss/_hero.scss */
+/* line 1, ../scss/_hero.scss */
+.hero {
+  background: url("../img/waves.png") #C5D1FD repeat-x;
+  background-position: bottom;
+  animation: backgroundScroll 30s linear infinite;
+  position: relative;
+  overflow-x: hidden;
+}
+/* line 8, ../scss/_hero.scss */
 .hero .wrapper {
   display: -webkit-box;
   display: -moz-box;
@@ -141,25 +196,143 @@ header nav ul li {
   -ms-flex-direction: column;
   height: 100vh;
 }
-/* line 11, ../scss/_hero.scss */
+/* line 16, ../scss/_hero.scss */
 .hero h1 {
+  font-weight: normal;
   font-size: 64px;
   margin-bottom: 20px;
 }
-/* line 16, ../scss/_hero.scss */
+/* line 22, ../scss/_hero.scss */
 .hero h2 {
+  font-weight: normal;
   font-size: 56px;
   margin-bottom: 20px;
 }
-/* line 21, ../scss/_hero.scss */
+/* line 28, ../scss/_hero.scss */
 .hero img {
   width: 80px;
   height: 80px;
   border-radius: 50%;
   padding: 8px;
 }
-/* line 27, ../scss/_hero.scss */
+/* line 34, ../scss/_hero.scss */
 .hero img:hover {
   transition: border .3s;
   border: 3px solid rgba(64, 64, 64, 0.2);
+}
+/* line 40, ../scss/_hero.scss */
+.hero .boat {
+  position: absolute;
+  bottom: 48px;
+  width: 160px;
+  height: 80px;
+  transform-origin: left center;
+  background-image: url("../img/boat.png");
+  z-index: 2;
+  animation: boatMove 60s linear infinite, boatRotate 8s ease infinite;
+}
+/* line 52, ../scss/_hero.scss */
+.hero .smoke {
+  background-image: url("../img/smoke.png");
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  right: 84px;
+  z-index: 1;
+  animation: smoke 4s ease infinite;
+}
+
+/* line 3, ../scss/_portfolio.scss */
+.portfolio .wrapper {
+  padding-top: 64px;
+  height: 100vh;
+}
+/* line 8, ../scss/_portfolio.scss */
+.portfolio h1 {
+  font-size: 40px;
+  margin: 24px 0;
+  text-align: center;
+  font-weight: normal;
+}
+/* line 15, ../scss/_portfolio.scss */
+.portfolio h2 {
+  text-align: center;
+  color: white;
+  margin: 8px 0;
+  font-size: 20px;
+  display: none;
+  position: absolute;
+  top: 10px;
+  left: 0;
+  right: 0;
+}
+/* line 27, ../scss/_portfolio.scss */
+.portfolio p {
+  text-align: center;
+  font-style: italic;
+  color: white;
+  display: none;
+  position: absolute;
+  top: 46px;
+  left: 0;
+  right: 0;
+}
+/* line 38, ../scss/_portfolio.scss */
+.portfolio .item-holder {
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-lines: multiple;
+  -moz-box-lines: multiple;
+  box-lines: multiple;
+  -webkit-flex-wrap: wrap;
+  -moz-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: justify;
+  -moz-box-pack: justify;
+  box-pack: justify;
+  -webkit-justify-content: space-between;
+  -moz-justify-content: space-between;
+  -ms-justify-content: space-between;
+  -o-justify-content: space-between;
+  justify-content: space-between;
+  -ms-flex-pack: justify;
+}
+/* line 43, ../scss/_portfolio.scss */
+.portfolio .item-holder a {
+  margin: 0 auto;
+}
+/* line 48, ../scss/_portfolio.scss */
+.portfolio .item {
+  position: relative;
+  width: 300px;
+  height: 170px;
+  border: 3px solid #FC7E8F;
+  border-radius: 5px;
+  margin-bottom: 30px;
+}
+/* line 56, ../scss/_portfolio.scss */
+.portfolio .item .overlay {
+  background: url("../img/link.png") no-repeat, linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
+  background-position: 50% 70%, center center;
+  background-size: 60px 60px, 100% 100%;
+  display: none;
+  width: 294px;
+  height: 164px;
+}
+/* line 67, ../scss/_portfolio.scss */
+.portfolio .item:hover .overlay,
+.portfolio .item:hover h2,
+.portfolio .item:hover p {
+  display: block;
+}
+/* line 76, ../scss/_portfolio.scss */
+.portfolio .godfathers {
+  background-image: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), url("../img/godfathers.png");
+  background-size: cover;
 }
