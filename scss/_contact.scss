@@ -1,0 +1,34 @@
+.contact {
+	.wrapper {
+		@include display(flex);
+		@include justify-content(center);
+		padding: 64px 0;
+	}
+
+	.github {
+		@include display(flex);
+		@include align-items(center);
+	}
+
+	.github-link {
+		font-size: 20px;
+		text-indent: -300px;
+		overflow: hidden;
+		text-decoration: underline;
+		transition: text-indent 1s;
+	}
+
+	.github-logo {
+		transition: transform 1s;
+	}
+
+	&.inview {
+		.github-link {
+			text-indent: 30px;
+		}
+
+		.github-logo {
+			transform: rotateY(180deg);
+		}
+	}
+}

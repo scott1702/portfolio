@@ -16,9 +16,16 @@ $(function() {
 $(window).scroll(function(){
     if ($('#navigation').offset().top > 0) {
     	$('#navigation').addClass('navscroll');
-    	console.log('scrolled');
     } else {
     	$('#navigation').removeClass('navscroll');
-    	console.log('top');
     }
-})
+
+    $('#contact').waypoint(function(direction) {
+      if (direction === 'down') {
+        $('#contact').addClass('inview');
+      } else {
+        $('#contact').removeClass('inview');
+      }
+    }, { offset: '100%' });
+});
+
