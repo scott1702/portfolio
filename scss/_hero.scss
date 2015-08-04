@@ -1,5 +1,5 @@
 .hero {
-	background: url('../img/waves.png') #C5D1FD repeat-x;
+	background: url('../img/waves.png') repeat-x;
 	background-position: bottom;
 	animation: backgroundScroll 30s linear infinite;
 	position: relative;
@@ -39,14 +39,14 @@
 
 	.boat {
 		position: absolute;
-		bottom: 52px;
+		bottom: 56px;
 		width: 160px;
-		height: 80px;
+		height: 84px;
 		transform-origin: left center;
 		background-image: url('../img/boat.png');
-		z-index: 2;
+		z-index: -1;
 		animation: boatMove 60s linear infinite,
-				   boatRotate 4.3s ease infinite .2s;
+				   boatRotate 4.4s ease infinite .4s;
 	}
 
 	.smoke {

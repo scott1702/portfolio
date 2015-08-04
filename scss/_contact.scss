@@ -1,34 +1,42 @@
 .contact {
 	.wrapper {
 		@include display(flex);
-		@include justify-content(center);
+		@include justify-content(space-around);
+		@include flex-wrap(wrap);
 		padding: 64px 0;
 	}
 
-	.github {
+	.social {
 		@include display(flex);
 		@include align-items(center);
+		@include justify-content(center);
+		min-width: 392px;
+		margin: 40px 0;
 	}
 
-	.github-link {
+	.social-link {
 		font-size: 20px;
-		text-indent: -300px;
+		text-indent: -250px;
 		overflow: hidden;
 		text-decoration: underline;
-		transition: text-indent 1s;
+		transition: text-indent 0;
 	}
 
-	.github-logo {
-		transition: transform 1s;
+	.social-logo {
+		transition: transform 0;
+		width: 120px;
+		height: 120px;
 	}
 
 	&.inview {
-		.github-link {
+		.social-link {
 			text-indent: 30px;
+			transition: text-indent 1.2s .42s;
 		}
 
-		.github-logo {
-			transform: rotateY(180deg);
+		.social-logo {
+			transform: rotateY(360deg);
+			transition: transform 1.2s .2s;
 		}
 	}
 }
