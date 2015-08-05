@@ -4,6 +4,12 @@
   }
 }
 
+@mixin tiny {
+  @media (max-height: 420px) {
+    @content;
+  }
+}
+
 @mixin tablet {
   @media (max-width: 1024px) {
     @content;

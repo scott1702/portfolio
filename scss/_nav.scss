@@ -24,6 +24,11 @@ header {
 						margin-left .5s;
 				margin-left: 0;
 				opacity: 1;
+
+				@include mobile {
+					margin-left: -30px;
+					opacity: 0;
+				}
 			}
 		}
 	}

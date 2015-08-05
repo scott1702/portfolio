@@ -12,7 +12,7 @@
 		@include align-items(center);
 		@include justify-content(center);
 		@include flex-direction(column);
-		height: 100vh;
+		// height: 100vh;
 		text-align: center;
 	}
 
@@ -24,6 +24,10 @@
 		@include mobile {
 			font-size: .8 * 64px;
 		}
+
+		@include tiny {
+			font-size: 40px;
+		}
 	}
 
 	h2 {
@@ -33,6 +37,11 @@
 
 		@include mobile {
 			font-size: .9 * 56px;
+			margin-bottom: 12px;
+		}
+
+		@include tiny {
+			font-size: 32px;
 		}
 	}
 
