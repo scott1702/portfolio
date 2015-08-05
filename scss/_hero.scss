@@ -2,6 +2,7 @@
 	background: url('../img/waves.png') repeat-x;
 	background-position: bottom;
 	background-size: 680px 100px;
+	-webkit-animation: backgroundScroll 30s linear infinite;
 	animation: backgroundScroll 30s linear infinite;
 	position: relative;
 	overflow-x: hidden;
@@ -60,6 +61,8 @@
 		transform-origin: 30% 0;
 		background-image: url('../img/boat.png');
 		z-index: -1;
+		-webkit-animation: boatMove 60s linear infinite,
+				   boatRotate 4.4s ease infinite .4s;
 		animation: boatMove 60s linear infinite,
 				   boatRotate 4.4s ease infinite .4s;
 	}
@@ -71,6 +74,7 @@
 		position: absolute;
 		right: 84px;
 		z-index: 1;
+		-webkit-animation: smoke 4s ease infinite;
 		animation: smoke 4s ease infinite;
 	}
 }

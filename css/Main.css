@@ -1,3 +1,11 @@
+@-webkit-keyframes backgroundScroll {
+  0% {
+    background-position: 0 bottom;
+  }
+  100% {
+    background-position: -680px bottom;
+  }
+}
 @keyframes backgroundScroll {
   0% {
     background-position: 0 bottom;
@@ -6,7 +14,43 @@
     background-position: -680px bottom;
   }
 }
-@keyframes boatMove {
+@-webkit-keyframes boatMove {
+  0% {
+    left: -200px;
+  }
+  99.99% {
+    left: calc(100% + 200px);
+  }
+  100% {
+    left: -200px;
+  }
+}
+@-webkit-keyframes boatRotate {
+  0% {
+    transform: rotate(3deg);
+  }
+  50% {
+    transform: rotate(-5deg);
+  }
+  100% {
+    transform: rotate(3deg);
+  }
+}
+@-webkit-keyframes smoke {
+  0% {
+    opacity: 0;
+    top: -50px;
+  }
+  50% {
+    opacity: 1;
+    top: -70px;
+  }
+  100% {
+    opacity: 0;
+    top: -70px;
+  }
+}
+@-webkit-keyframes boatMove {
   0% {
     left: -200px;
   }
@@ -178,11 +222,12 @@ header nav ul li {
   background: url("../img/waves.png") repeat-x;
   background-position: bottom;
   background-size: 680px 100px;
+  -webkit-animation: backgroundScroll 30s linear infinite;
   animation: backgroundScroll 30s linear infinite;
   position: relative;
   overflow-x: hidden;
 }
-/* line 9, ../scss/_hero.scss */
+/* line 10, ../scss/_hero.scss */
 .hero .wrapper {
   display: -webkit-box;
   display: -moz-box;
@@ -222,31 +267,31 @@ header nav ul li {
   height: 100vh;
   text-align: center;
 }
-/* line 18, ../scss/_hero.scss */
+/* line 19, ../scss/_hero.scss */
 .hero h1 {
   font-weight: normal;
   font-size: 64px;
   margin-bottom: 20px;
 }
 @media (max-width: 500px) {
-  /* line 18, ../scss/_hero.scss */
+  /* line 19, ../scss/_hero.scss */
   .hero h1 {
     font-size: 51.2px;
   }
 }
-/* line 28, ../scss/_hero.scss */
+/* line 29, ../scss/_hero.scss */
 .hero h2 {
   font-weight: normal;
   font-size: 56px;
   margin-bottom: 20px;
 }
 @media (max-width: 500px) {
-  /* line 28, ../scss/_hero.scss */
+  /* line 29, ../scss/_hero.scss */
   .hero h2 {
     font-size: 50.4px;
   }
 }
-/* line 38, ../scss/_hero.scss */
+/* line 39, ../scss/_hero.scss */
 .hero img {
   width: 80px;
   height: 80px;
@@ -254,18 +299,18 @@ header nav ul li {
   padding: 8px;
 }
 @media (max-width: 500px) {
-  /* line 38, ../scss/_hero.scss */
+  /* line 39, ../scss/_hero.scss */
   .hero img {
     width: 70px;
     height: 70px;
   }
 }
-/* line 49, ../scss/_hero.scss */
+/* line 50, ../scss/_hero.scss */
 .hero img:hover {
   transition: border .3s;
   border: 3px solid rgba(64, 64, 64, 0.2);
 }
-/* line 55, ../scss/_hero.scss */
+/* line 56, ../scss/_hero.scss */
 .hero .boat {
   position: absolute;
   bottom: 56px;
@@ -274,9 +319,10 @@ header nav ul li {
   transform-origin: 30% 0;
   background-image: url("../img/boat.png");
   z-index: -1;
+  -webkit-animation: boatMove 60s linear infinite, boatRotate 4.4s ease infinite .4s;
   animation: boatMove 60s linear infinite, boatRotate 4.4s ease infinite .4s;
 }
-/* line 67, ../scss/_hero.scss */
+/* line 70, ../scss/_hero.scss */
 .hero .smoke {
   background-image: url("../img/smoke.png");
   width: 60px;
@@ -284,6 +330,7 @@ header nav ul li {
   position: absolute;
   right: 84px;
   z-index: 1;
+  -webkit-animation: smoke 4s ease infinite;
   animation: smoke 4s ease infinite;
 }
 
