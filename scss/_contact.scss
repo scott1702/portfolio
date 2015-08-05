@@ -19,6 +19,12 @@
 		@include justify-content(center);
 		min-width: 392px;
 		margin: 40px 0;
+
+		@include mobile {
+			@include flex-direction(column);
+			margin: 20px 0;
+			min-width: 0;
+		}
 	}
 
 	.social-link {
@@ -27,10 +33,13 @@
 		overflow: hidden;
 		text-decoration: underline;
 		transition: text-indent 0;
+
+		@include mobile {
+			text-indent: 0;
+		}
 	}
 
 	.social-logo {
-		transition: transform 0s;
 		width: 80px;
 		height: 80px;
 	}
@@ -39,11 +48,10 @@
 		.social-link {
 			text-indent: 30px;
 			transition: text-indent 1.2s .42s;
-		}
 
-		.social-logo {
-			// transform: rotateY(360deg);
-			transition: transform 1.2s .2s;
+			@include mobile {
+				text-indent: 0;
+			}
 		}
 	}
 }

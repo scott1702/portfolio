@@ -6,6 +6,10 @@ section {
 	width: 70%;
 	margin: auto;
 	max-width: 960px;
+
+	@include mobile {
+		width: 90%;
+	}
 }
 
 *,

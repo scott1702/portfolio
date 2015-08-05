@@ -20,6 +20,10 @@
 		top: 10px;
 		left: 0;
 		right: 0;
+
+		@include mobile {
+			font-size: 18px;
+		}
 	}
 
 	p {
@@ -31,6 +35,10 @@
 		top: 46px;
 		left: 0;
 		right: 0;
+
+		@include mobile {
+			font-size: 14px;
+		}
 	}
 
 	.item-holder {
@@ -47,13 +55,22 @@
 		border-radius: 5px;
 		margin-bottom: 30px;
 
+		@include mobile {
+			width: 240px;
+			height: 136px;
+		}
+
 		.overlay {
 			background: url('../img/link.png') no-repeat,
 						linear-gradient(rgba(0,0,0,.4), rgba(0,0,0,.4));
-			background-position: 50% 70%, center center;
-			background-size: 60px 60px, 100% 100%;
+			background-position: 50% 80%, center center;
+			background-size: 50px 50px, 100% 100%;
 			display: none;
 			height: 164px;
+
+			@include mobile {
+				height: 130px;
+			}
 		}
 
 		&:hover {
@@ -63,7 +80,6 @@
 				display: block;
 			}
 		}
-
 	}
 
 	.godfathers {
